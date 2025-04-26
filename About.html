@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2b2b2b, #787777);
+            margin-top: 100px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        nav {
+            width: 100%;
+            height: 80px;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid silver;
+        }
+
+        nav img {
+            height: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        nav img:hover {
+            transform: scale(1.1);
+        }
+
+        nav h1 {
+            font-size: 32px;
+            color: #ae1515;
+        }
+
+        nav a {
+            font-size: 17px;
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background-color: #ae1515;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .card {
+            max-width: 900px;
+            background-color: #bdbcbc;
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            font-size: 24px;
+            border-left: 5px solid rgb(174, 21, 21);
+            padding-left: 10px;
+            color: rgb(174, 21, 21);
+        }
+        h2:hover{
+            color: transparent;
+            background: linear-gradient(145deg, #23b9ac, #000000);
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+
+        p {
+            font-size: 16px;
+            color: transparent;
+            background: linear-gradient(145deg, #ff6a00, #ff007b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            text-align: justify;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+        p:hover{
+            color: transparent;
+            background-clip: text;
+            background: linear-gradient(145deg, #ff0000, #2200ff);
+            -webkit-background-clip: text;
+        }
+        footer {
+            background-color: #222;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer a img {
+            width: 24px;
+            height: 24px;
+            margin: 0 10px;
+            vertical-align: middle;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        footer a img:hover {
+            color: #00fc71;
+            background-color: #00fc71;
+            transform: scale(0.7);
+            filter: brightness(1.5);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                height: auto;
+                padding: 10px;
+            }
+
+            nav h1 {
+                margin: 10px 0;
+            }
+
+            nav a {
+                margin: 5px 10px;
+                font-size: 16px;
+            }
+
+            .card {
+                margin: 20px 10px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav>
+        <img src="data:image/jpeg;base64,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"
+            alt="CBE Logo">
+        <h1>CBE City Guide</h1>
+        <div>
+            <a href="HoltelBooking.html">Hotel</a>
+            <a href="Gallery.html">Gallery</a>
+            <a href="Attractions.html">Attractions</a>
+            <a href="index.html">Home</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card" id="h">
+            <h2>History of Coimbatore</h2>
+            <p>Coimbatore, often called the Manchester of South India, holds a legacy deeply rooted in ancient history
+                and culture. Once part of the mighty Chera dynasty during the Sangam Age, the region flourished with
+                trade and craftsmanship. Over time, it evolved under various rulers, each leaving behind a unique mark
+                of tradition and architecture. With the advent of British rule, Coimbatore transformed into a booming
+                textile hub, its mills and factories shaping its economic rise. Today, it stands as a proud blend of
+                heritage and modernity, a city where history echoes through bustling markets, temples, and the
+                industrious spirit of its people.</p>
+        </div>
+
+        <div class="card">
+            <h2>Weather of Coimbatore</h2>
+            <p>Coimbatore enjoys a pleasant and moderate climate throughout the year, thanks to its location near the
+                Western Ghats. Summers are typically warm but bearable, with cool breezes offering relief from the heat.
+                Monsoons bring moderate rainfall, refreshing the region and nurturing its lush greenery. Winters are
+                mild and comfortable, making it an ideal time for visitors to explore the city. Overall, Coimbatore’s
+                weather complements its vibrant lifestyle, blending sunshine and showers in perfect harmony.</p>
+        </div>
+
+        <div class="card">
+            <h2>Hot Spots of Coimbatore</h2>
+            <p>Coimbatore is home to several breathtaking hot spots that attract both tourists and locals alike. The
+                serene Ooty, located nearby, offers a cool getaway with its lush gardens and pristine lakes.
+                Marudamalai, a temple perched atop a hill, offers both spiritual solace and panoramic views of the city
+                below. The VOC Park is a charming spot for families, featuring rides, animals, and peaceful green
+                spaces. For nature lovers, the Siruvani Waterfalls is a tranquil retreat, known for its stunning scenery
+                and peaceful atmosphere. Lastly, the Gass Forest Museum provides an educational dive into the region's
+                biodiversity, making it a perfect spot for nature enthusiasts and curious minds alike.</p>
+        </div>
+
+        <div class="card">
+            <h2>Culture of Coimbatore</h2>
+            <p>Coimbatore, known for its vibrant culture, seamlessly blends tradition with modernity. The city's
+                cultural heritage is reflected in its numerous temples, including the renowned Perur Pateeswarar Temple,
+                where rituals and festivities hold deep significance. The city is also famous for its handloom industry,
+                showcasing intricate silk weaving traditions. Kanchipuram sarees are a staple here, adored for their
+                beauty and craftsmanship. The Tamil festival of Pongal is celebrated with great enthusiasm, marked by
+                elaborate feasts, dance, and music. Coimbatore is also home to a thriving Carnatic music and
+                Bharatanatyam dance scene, with numerous cultural events and performances taking place throughout the
+                year.</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; Done by MUHIL M V <br>
+        <a href="https://github.com/muhil1107" target="_blank">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+        </a>
+        <a href="https://www.linkedin.com/in/muhil-m-v-1b1554258/" target="_blank">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+        </a>
+    </footer>
+</body>
+
+</html>
